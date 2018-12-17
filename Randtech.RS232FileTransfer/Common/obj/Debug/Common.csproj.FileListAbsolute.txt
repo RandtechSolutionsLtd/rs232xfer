@@ -1,0 +1,6 @@
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Common\bin\Debug\Common.dll
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Common\bin\Debug\Common.pdb
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Common\obj\Debug\Common.dll
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Common\obj\Debug\Common.pdb
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Common\obj\Debug\Common.csprojAssemblyReference.cache

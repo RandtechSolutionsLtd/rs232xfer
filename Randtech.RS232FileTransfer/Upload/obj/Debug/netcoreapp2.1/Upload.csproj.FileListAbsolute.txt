@@ -1,0 +1,14 @@
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Upload\bin\Debug\netcoreapp2.1\Upload.deps.json
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Upload\bin\Debug\netcoreapp2.1\Upload.runtimeconfig.json
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Upload\bin\Debug\netcoreapp2.1\Upload.runtimeconfig.dev.json
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Upload\bin\Debug\netcoreapp2.1\Upload.dll
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Upload\bin\Debug\netcoreapp2.1\Upload.pdb
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Upload\obj\Debug\netcoreapp2.1\Upload.csprojAssemblyReference.cache
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Upload\obj\Debug\netcoreapp2.1\Upload.csproj.CoreCompileInputs.cache
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Upload\obj\Debug\netcoreapp2.1\Upload.AssemblyInfoInputs.cache
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Upload\obj\Debug\netcoreapp2.1\Upload.AssemblyInfo.cs
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Upload\obj\Debug\netcoreapp2.1\Upload.dll
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Upload\obj\Debug\netcoreapp2.1\Upload.pdb
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Upload\bin\Debug\netcoreapp2.1\Common.dll
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Upload\bin\Debug\netcoreapp2.1\Common.pdb
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Upload\obj\Debug\netcoreapp2.1\Upload.csproj.CopyComplete
