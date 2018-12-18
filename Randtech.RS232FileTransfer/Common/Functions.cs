@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Ports;
 
@@ -7,7 +8,7 @@ namespace Randtech.RS232FileTransfer.Common
 {
 	public class Functions
 	{
-		public static void ShowStatus()
+		public static void ShowStatusDebug()
 		{
 			
 			Console.WriteLine($"Config folder: {Settings.ConfigFolderName}");
@@ -33,6 +34,7 @@ namespace Randtech.RS232FileTransfer.Common
 			{
 				throw new FileNotFoundException($"Send config file not found. Check path '{Settings.SendConfigPathName}' exists.");
 			}
+
 			if (!isReceiveFileFound)
 			{
 				throw new FileNotFoundException($"Receive config file not found. Check path '{Settings.ReceiveConfigPathName}' exists.");
@@ -46,6 +48,7 @@ namespace Randtech.RS232FileTransfer.Common
 
 			Console.WriteLine($"Success message: {Settings.MessageSuccess}");
 			Console.WriteLine($"Fail message: {Settings.MessageFail}");
+
 			Console.ReadLine();
 		}
 
@@ -56,19 +59,19 @@ namespace Randtech.RS232FileTransfer.Common
 			{
 				BaudRate = Settings.BaudRate,
 				DataBits = int.Parse(ConfigurationManager.AppSettings["bits"] ?? "8"),
-				PortName = ConfigurationManager.AppSettings[isSendPort ? "portNameForSending" : "portNameForReceiving"],
+				PortName = ConfigurationManager.AppSettings[isSendPort ? Settings.SendPortName : Settings.ReceivePortName],
 				StopBits = Settings.StopBits,
 				Parity = Settings.Parity,
-				Handshake = Handshake.RequestToSend,
-				
+				Handshake = Settings.Handshake,
+
 				//RtsEnable = true,
 				//DtrEnable = true,
 				//ReadTimeout = -1,
-				//WriteTimeout = 4600
+				WriteTimeout = Settings.WriteTimeout
 			};
 
 			while(port.IsOpen){
-				Console.WriteLine($"Port  '{port.PortName}' is already open. Attempting to close.");
+				Debug.WriteLine($"Port  '{port.PortName}' is already open. Attempting to close.");
 				port.Close();
 			}
 
@@ -89,7 +92,6 @@ namespace Randtech.RS232FileTransfer.Common
 		{
 			port.Open();
 			port.Write(File.OpenText(fileName).ReadToEnd());
-			Console.WriteLine("File send completed.");
 			port.Close();
 		}
 
@@ -99,7 +101,6 @@ namespace Randtech.RS232FileTransfer.Common
 			using (FileStream fs = File.OpenRead(fileName))
 				port.Write((new BinaryReader(fs)).ReadBytes((int)fs.Length), 0, (int)fs.Length);
 
-			Console.WriteLine("File send completed.");
 			port.Close();
 		}
 	}

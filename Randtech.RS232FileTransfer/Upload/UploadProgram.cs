@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Configuration;
-using System.IO;
 using System.IO.Ports;
 
 namespace Randtech.RS232FileTransfer.Upload
@@ -9,14 +7,24 @@ namespace Randtech.RS232FileTransfer.Upload
 	{
 		static void Main(string[] args)
 		{
-			Common.Functions.ShowStatus();
+			Common.Functions.ShowStatusDebug();
 
-			SerialPort port = Common.Functions.GetSerialPort();
-			
-			string fileName = Common.Settings.SendFileName;
+			try
+			{
+				SerialPort port = Common.Functions.GetSerialPort();
+				string fileName = Common.Settings.SendFileName;
+				Common.Functions.SendTextFile(port, fileName);
 
+				Console.WriteLine(Common.Settings.MessageSuccess);
+			}
+			catch 
+			{
+				Console.WriteLine(Common.Settings.MessageFail);
 
-			Common.Functions.SendTextFile(port, fileName);
+#if (DEBUG)
+				throw;
+#endif
+			}
 		}
 	}
 }

@@ -1,63 +1,82 @@
 ﻿using System;
-using System.Configuration;
+using System.Diagnostics;
+using System.IO;
 using System.IO.Ports;
 
 namespace Randtech.RS232FileTransfer.Download
 {
 	class DownloadProgram
 	{
-
-		// Create the serial port with basic settings 
 		private static SerialPort port = Common.Functions.GetSerialPort(false);
+		private static string buffer;
+
 
 		[STAThread]
 		static void Main(string[] args)
 		{
-			//Common.Functions.ShowStatus();
+#if(DEBUG)
+			Common.Functions.ShowStatusDebug();
+#endif
 
-			new DownloadProgram();
-		}
-
-
-
-		private DownloadProgram()
-		{
-			
-			int maxTries = int.Parse(ConfigurationManager.AppSettings["maxTries"] ?? "20");
+			int maxTries = Common.Settings.MaximumRetries;
 			int count = 0;
-			port.Open();
-			Console.WriteLine($"Port '{port.PortName}' is now open and awaiting file...");
 
 			while (maxTries > count)
 			{
 				try
 				{
-					port.DataReceived += port_DataReceived;
+					Debug.WriteLine($"Port '{port.PortName}' is now open and awaiting file...");
+
+					port.DataReceived += Port_DataReceived;
 					port.ErrorReceived += Port_ErrorReceived;
+					buffer = string.Empty;
+					if(!port.IsOpen){
+						port.Open();
+					}
+
 				}
 				catch (Exception ex)
 				{
 					count++;
-					Console.WriteLine(ex.ToString());
-					
-					if(maxTries > count){
+
+					if (maxTries > count){
 						Console.WriteLine(Common.Settings.MessageFail);
+#if(DEBUG)
+						Console.WriteLine(ex.ToString());
+#endif
 					}
+
+					port.Close();
 				}
 			}
 		}
 
-		private void Port_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
+
+
+		private static void Port_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
 		{
-			Console.WriteLine("Error received.");
+			Debug.WriteLine("Error received.");
 		}
 
-		private void port_DataReceived(object sender, SerialDataReceivedEventArgs e)
+		private static void Port_DataReceived(object sender, SerialDataReceivedEventArgs e)
 		{
-			// Show all the incoming data in the port's buffer
-			Console.WriteLine("Incoming Data:");
+			// Read File
+			buffer += port.ReadExisting();
 
-			Console.WriteLine(port.ReadExisting());
+			//test for termination character in buffer
+			if (buffer.Contains("\r\n"))
+			{
+				//run code on data received from serial port
+				// Save file
+				string path = Path.Combine(Common.Settings.ReceiveFolderName, "incoming.txt"); // todo get fle name from incoming				
+
+				if(File.Exists(path)){
+					File.Delete(path);
+				}
+				string createText =  buffer + Environment.NewLine;
+				File.WriteAllText(path, createText);
+				
+			}
 		}
 	}
 }

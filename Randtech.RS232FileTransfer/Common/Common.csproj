@@ -75,6 +75,7 @@
   <ItemGroup>
     <Content Include="ExampleFiles\FileTransferReceive.txt" />
     <Content Include="ExampleFiles\FileTransferSend.txt" />
+    <None Include="ExampleFiles\datafile.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
