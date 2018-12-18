@@ -23,4 +23,10 @@
     <None Include="..\Download\App.config" Link="App.config" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Run.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

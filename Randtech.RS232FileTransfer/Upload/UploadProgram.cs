@@ -5,15 +5,24 @@ namespace Randtech.RS232FileTransfer.Upload
 {
 	class UploadProgram
 	{
+		public SerialPort Port { get; set; }
+
 		static void Main(string[] args)
 		{
-			Common.Functions.ShowStatusDebug();
+#if (DEBUG)
+			Common.Functions.ShowStatusDebug(); 
+#endif
 
+			new UploadProgram(Common.Functions.GetSerialPort(true), Common.Settings.SendFileName);
+		}
+
+
+		private UploadProgram(SerialPort _port, string fileName)
+		{
+			Port = _port;
 			try
 			{
-				SerialPort port = Common.Functions.GetSerialPort();
-				string fileName = Common.Settings.SendFileName;
-				Common.Functions.SendTextFile(port, fileName);
+				Common.Functions.SendTextFile(Port, fileName);
 
 				Console.WriteLine(Common.Settings.MessageSuccess);
 			}

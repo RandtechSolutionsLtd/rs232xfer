@@ -59,7 +59,7 @@ namespace Randtech.RS232FileTransfer.Common
 			{
 				BaudRate = Settings.BaudRate,
 				DataBits = int.Parse(ConfigurationManager.AppSettings["bits"] ?? "8"),
-				PortName = ConfigurationManager.AppSettings[isSendPort ? Settings.SendPortName : Settings.ReceivePortName],
+				PortName = isSendPort ? Settings.SendPortName : Settings.ReceivePortName,
 				StopBits = Settings.StopBits,
 				Parity = Settings.Parity,
 				Handshake = Settings.Handshake,
