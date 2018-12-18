@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.IO.Ports;
 
 namespace Randtech.RS232FileTransfer.Download
@@ -7,13 +8,12 @@ namespace Randtech.RS232FileTransfer.Download
 	{
 
 		// Create the serial port with basic settings 
-		private static SerialPort port = new SerialPort("COM1",
-		  9600, Parity.None, 8, StopBits.One);
+		private static SerialPort port = Common.Functions.GetSerialPort(false);
 
 		[STAThread]
 		static void Main(string[] args)
 		{
-			Common.Functions.IntroText();
+			//Common.Functions.ShowStatus();
 
 			new DownloadProgram();
 		}
@@ -22,25 +22,41 @@ namespace Randtech.RS232FileTransfer.Download
 
 		private DownloadProgram()
 		{
-			Console.WriteLine("Incoming Data:");
-			// Attach a method to be called when there
-			// is data waiting in the port's buffer 
-			port.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
-			// Begin communications 
+			
+			int maxTries = int.Parse(ConfigurationManager.AppSettings["maxTries"] ?? "20");
+			int count = 0;
 			port.Open();
+			Console.WriteLine($"Port '{port.PortName}' is now open and awaiting file...");
 
-
-
-			while(true)
+			while (maxTries > count)
 			{
-				
+				try
+				{
+					port.DataReceived += port_DataReceived;
+					port.ErrorReceived += Port_ErrorReceived;
+				}
+				catch (Exception ex)
+				{
+					count++;
+					Console.WriteLine(ex.ToString());
+					
+					if(maxTries > count){
+						Console.WriteLine(Common.Settings.MessageFail);
+					}
+				}
 			}
+		}
 
+		private void Port_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
+		{
+			Console.WriteLine("Error received.");
 		}
 
 		private void port_DataReceived(object sender, SerialDataReceivedEventArgs e)
 		{
 			// Show all the incoming data in the port's buffer
+			Console.WriteLine("Incoming Data:");
+
 			Console.WriteLine(port.ReadExisting());
 		}
 	}

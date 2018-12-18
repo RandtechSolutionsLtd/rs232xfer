@@ -1,3 +1,0 @@
-﻿Hello world!
-
-This is a sample file to send over the RS232 connection! 

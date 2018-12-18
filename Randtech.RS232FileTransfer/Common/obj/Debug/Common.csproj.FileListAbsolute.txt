@@ -4,3 +4,8 @@ F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Common\obj\Debu
 F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Common\obj\Debug\Common.dll
 F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Common\obj\Debug\Common.pdb
 F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Common\obj\Debug\Common.csprojAssemblyReference.cache
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Common\bin\Debug\System.Configuration.ConfigurationManager.dll
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Common\bin\Debug\System.Security.AccessControl.dll
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Common\bin\Debug\System.Security.Permissions.dll
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Common\bin\Debug\System.Security.Principal.Windows.dll
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Common\obj\Debug\Common.csproj.CopyComplete

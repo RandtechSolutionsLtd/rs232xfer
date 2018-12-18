@@ -12,3 +12,4 @@ F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Upload\obj\Debu
 F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Upload\bin\Debug\netcoreapp2.1\Common.dll
 F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Upload\bin\Debug\netcoreapp2.1\Common.pdb
 F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Upload\obj\Debug\netcoreapp2.1\Upload.csproj.CopyComplete
+F:\My Folder\Dev\CR.RS232FileTransfer\Randtech.RS232FileTransfer\Upload\bin\Debug\netcoreapp2.1\Upload.dll.config
