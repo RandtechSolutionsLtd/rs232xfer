@@ -1058,7 +1058,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "restore": {
       "projectUniqueName": "F:\\My Folder\\Dev\\CR.RS232FileTransfer\\Randtech.RS232FileTransfer\\Upload\\Upload.csproj",
       "projectName": "Upload",

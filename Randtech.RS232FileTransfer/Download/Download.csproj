@@ -4,6 +4,10 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <RootNamespace>Randtech.RS232FileTransfer.Download</RootNamespace>
+    <Version>1.0.1</Version>
+    <Authors>Chris Randle</Authors>
+    <Company>Randtech Solutions</Company>
+    <Product>RS232 FTP - Download Client</Product>
   </PropertyGroup>
 
   <ItemGroup>
